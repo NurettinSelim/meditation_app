@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:meditation_app/constants.dart';
 import 'package:meditation_app/screens/details_screen.dart';
+import 'package:meditation_app/utils/theme_helper.dart';
 import 'package:meditation_app/widgets/bottom_nav_bar.dart';
 import 'package:meditation_app/widgets/category_card.dart';
 import 'package:meditation_app/widgets/search_bar.dart';
@@ -17,11 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Meditation App',
-      theme: ThemeData(
-        fontFamily: "Cairo",
-        scaffoldBackgroundColor: kBackgroundColor,
-        textTheme: Theme.of(context).textTheme.apply(displayColor: kTextColor),
-      ),
+      theme: ThemeHelper.themeData,
       home: const HomeScreen(),
     );
   }
@@ -35,6 +31,7 @@ class HomeScreen extends StatelessWidget {
     var size = MediaQuery.of(context)
         .size; //this gonna give us total height and with of our device
     return Scaffold(
+      backgroundColor: ThemeHelper.backgroundColor,
       bottomNavigationBar: const BottomNavBar(),
       body: Stack(
         children: <Widget>[
@@ -100,7 +97,7 @@ class HomeScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) {
-                                return DetailsScreen();
+                                return const DetailsScreen();
                               }),
                             );
                           },
