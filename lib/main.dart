@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:meditation_app/screens/details_screen.dart';
+import 'package:meditation_app/utils/text_config.dart';
 import 'package:meditation_app/utils/theme_helper.dart';
 import 'package:meditation_app/widgets/bottom_nav_bar.dart';
 import 'package:meditation_app/widgets/category_card.dart';
@@ -39,7 +40,7 @@ class HomeScreen extends StatelessWidget {
             // Here the height of the container is 45% of our total height
             height: size.height * .45,
             decoration: const BoxDecoration(
-              color: Color(0xFFF5CEB8),
+              color: ThemeHelper.darkBackgroundColor,
               image: DecorationImage(
                 alignment: Alignment.centerLeft,
                 image: AssetImage("assets/images/undraw_pilates_gpdb.png"),
@@ -52,25 +53,23 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
+                  const SizedBox(height: 24),
                   Align(
                     alignment: Alignment.topRight,
                     child: Container(
                       alignment: Alignment.center,
-                      height: 52,
-                      width: 52,
+                      height: 48,
+                      width: 48,
                       decoration: const BoxDecoration(
-                        color: Color(0xFFF2BEA1),
+                        color: ThemeHelper.buttonColor,
                         shape: BoxShape.circle,
                       ),
                       child: SvgPicture.asset("assets/icons/menu.svg"),
                     ),
                   ),
                   Text(
-                    "Good Mornign \nShishir",
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineMedium
-                        ?.copyWith(fontWeight: FontWeight.w900),
+                    TextConfig.welcomeText,
+                    style: Theme.of(context).textTheme.displaySmall,
                   ),
                   const SearchBar(),
                   Expanded(
